@@ -28,7 +28,7 @@ class TaiwanFuturesTrader:
 
     @st.cache_data(ttl=3600) # 快取資料1小時
     def download_data(_self, days_back=100):
-        end_date = datetime.now()
+        end_date = datetime.now() + timedelta(days=1)
         start_date = end_date - timedelta(days=days_back)
         try:
             # 下載資料
@@ -212,4 +212,5 @@ else:
     **可能原因：**
     1. Yahoo Finance 暫時阻擋連線 (稍後再按「更新」試試)
     2. 目前非開盤時間或剛開盤，資料源尚未更新
+
     """)
